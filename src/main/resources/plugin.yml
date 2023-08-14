@@ -1,0 +1,11 @@
+name: ViAnarchyUtils
+version: '${project.version}'
+main: me.hungaz.vianarchyutils.ViAnarchyUtils
+description: Utils plugin for ViAnarchy.
+author: hungaz
+api-version: '1.18'
+commands:
+  kill:
+    description: "Kys"
+    usage: "/kill"
+    aliases: [kill, suicide]
