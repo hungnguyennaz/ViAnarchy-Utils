@@ -17,6 +17,7 @@ import java.util.UUID;
 public class ViAnarchyUtils extends JavaPlugin implements Listener {
 
     private boolean killEnabled;
+    private boolean discordLinkEnabled;
     private Map<UUID, Boolean> confirmations;
 
     @Override
@@ -31,6 +32,7 @@ public class ViAnarchyUtils extends JavaPlugin implements Listener {
         reloadConfig();
         FileConfiguration config = getConfig();
         killEnabled = config.getBoolean("kill-enabled", true);
+        discordLinkEnabled = config.getBoolean("discord-link-enabled", true);
     }
 
     @Override
@@ -51,6 +53,9 @@ public class ViAnarchyUtils extends JavaPlugin implements Listener {
                 player.sendMessage("§cBạn có chắc chắn rằng bạn muốn tự kết liễu bản thân? Nhập lại để xác nhận.");
                 confirmations.put(player.getUniqueId(), true);
             }
+            return true;
+        } else if (command.getName().equalsIgnoreCase("joindiscord") && discordLinkEnabled) {
+            player.sendMessage("§aLink tham gia server Discord là §e[https://www.vianarchy.net/discord](https://www.vianarchy.net/discord)");
             return true;
         }
 

@@ -9,3 +9,6 @@ commands:
     description: "Kys"
     usage: "/kill"
     aliases: [kill, suicide]
+  joindiscord:
+    description: "Hiển thị link discord server"
+    usage: "/joindiscord"
