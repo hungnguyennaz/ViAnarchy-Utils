@@ -1,5 +1,7 @@
 package me.hungaz.vianarchyutils;
 
+import net.md_5.bungee.api.chat.ClickEvent;
+import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -55,7 +57,11 @@ public class ViAnarchyUtils extends JavaPlugin implements Listener {
             }
             return true;
         } else if (command.getName().equalsIgnoreCase("joindiscord") && discordLinkEnabled) {
-            player.sendMessage("§aLink tham gia server Discord là §e[https://www.vianarchy.net/discord](https://www.vianarchy.net/discord)");
+            TextComponent discordLink = new TextComponent("§aLink tham gia server Discord là");
+            TextComponent linkText = new TextComponent(" §ehttps://www.vianarchy.net/discord");
+            linkText.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://www.vianarchy.net/discord"));
+            discordLink.addExtra(linkText);
+            player.spigot().sendMessage(discordLink);
             return true;
         }
 
